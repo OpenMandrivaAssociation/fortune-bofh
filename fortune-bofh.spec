@@ -12,7 +12,6 @@ Group:		Toys
 Source:		%{base_name}-%{version}.tar.bz2
 URL:		http://www.cs.wisc.edu/~ballard/bofh
 BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-buildroot
 Requires:	fortune-mod
 BuildRequires:	fortune-mod
 
