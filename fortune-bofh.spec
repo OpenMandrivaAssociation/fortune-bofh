@@ -1,7 +1,7 @@
 %define base_name	bofh
 %define name		fortune-%{base_name}
 %define version		1.0
-%define release		%mkrel 6
+%define release		%mkrel 8
 
 Name:		%{name}
 Version:	%{version}
