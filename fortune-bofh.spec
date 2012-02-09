@@ -1,18 +1,14 @@
 %define base_name	bofh
-%define name		fortune-%{base_name}
-%define version		1.0
-%define release		%mkrel 9
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		fortune-%{base_name}
+Version:	1.2
+Release:	%mkrel 1
 Summary:	BOFH excuses fortune
 License:	Public Domain
 Group:		Toys
 Source:		%{base_name}-%{version}.tar.bz2
 URL:		http://www.cs.wisc.edu/~ballard/bofh
 BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-buildroot
 Requires:	fortune-mod
 BuildRequires:	fortune-mod
 
@@ -23,17 +19,17 @@ This is a set of BOFH-style excuses.
 %setup -q -n %{base_name}-%{version}
 
 %build
-perl -ni -e 'print "BOFH excuse #" . ++$i . ":\n\n$_%\n"' excuses
+%__perl -ni -e 'print "BOFH excuse #" . ++$i . ":\n\n$_%\n"' excuses
 /usr/sbin/strfile excuses
 
-%clean 
-rm -rf $RPM_BUILD_ROOT
-
 %install
-rm -rf $RPM_BUILD_ROOT
-install -d -m 755 $RPM_BUILD_ROOT%{_gamesdatadir}/fortunes
-install -m 644 excuses $RPM_BUILD_ROOT%{_gamesdatadir}/fortunes/%{base_name}
-install -m 644 excuses.dat $RPM_BUILD_ROOT%{_gamesdatadir}/fortunes/%{base_name}.dat
+%__rm -rf %{buildroot}
+install -d -m 755 %{buildroot}%{_gamesdatadir}/fortunes
+install -m 644 excuses %{buildroot}%{_gamesdatadir}/fortunes/%{base_name}
+install -m 644 excuses.dat %{buildroot}%{_gamesdatadir}/fortunes/%{base_name}.dat
+
+%clean
+%__rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
