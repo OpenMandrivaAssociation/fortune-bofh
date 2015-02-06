@@ -2,7 +2,7 @@
 
 Name:		fortune-%{base_name}
 Version:	1.2
-Release:	%mkrel 1
+Release:	2
 Summary:	BOFH excuses fortune
 License:	Public Domain
 Group:		Toys
