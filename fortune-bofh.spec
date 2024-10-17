@@ -7,7 +7,7 @@ Summary:	BOFH excuses fortune
 License:	Public Domain
 Group:		Toys
 Source:		%{base_name}-%{version}.tar.bz2
-URL:		http://www.cs.wisc.edu/~ballard/bofh
+URL:		https://www.cs.wisc.edu/~ballard/bofh
 BuildArch:	noarch
 Requires:	fortune-mod
 BuildRequires:	fortune-mod
